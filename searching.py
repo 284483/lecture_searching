@@ -54,8 +54,8 @@ def main():
     print(binarni_hledani)
     dna_data = read_data("sequential.json", "dna_sequence")
     print(f"DNA data:{dna_data}")
-    vyhledavani_kodonu=pattern_search(dna_data, "ATA")
-    print(vyhledavani_kodonu)
+    # vyhledavani_kodonu=pattern_search(dna_data, "ATA")
+    # print(vyhledavani_kodonu)
     pass
 
 if __name__ == '__main__':
