@@ -20,13 +20,29 @@ def linear_search(sequence, number):
 
     return {"positions": positions, "count": count_number}
 
+def binary_search(zoznam, cislo):
+    zoradene_cisla = sorted(set(zoznam))
+    low=0
+    high=len(zoradene_cisla)-1
+    while low<=high:
+        mid=(low+high)//2
+        if zoradene_cisla[mid]==cislo:
+            return mid
+        elif zoradene_cisla[mid]<cislo:
+            low=mid+1
+        else:
+            high=mid-1
+    return None
+
 
 def main():
 
-    # sequential_data = read_data("sequential.json", "unordered_numbers")
-    # print(sequential_data)
-    ciselne_hladanie=linear_search(x_cisla, 4)
+    sequential_data = read_data("sequential.json", "unordered_numbers")
+    print(sequential_data)
+    ciselne_hladanie=linear_search(sequential_data, 3)
     print(ciselne_hladanie)
+    binarni_hledani=binary_search(sequential_data, 9)
+    print(binarni_hledani)
     pass
 
 
