@@ -11,12 +11,22 @@ def read_data(file_name, field):
     :param field: (str), field of a dict to return
     :return: (list, string),
     """
-    file_path = os.path.join(cwd_path, file_name)
+    try:
+        with open(file_name, 'r') as file:
+            data = json.load(file)
+        if field not in data:
+            return None
 
+        return data[field]
+
+    except:
+        return None
 
 def main():
-    pass
 
+    sequential_data = read_data("sequential.json", "unordered_numbers")
+    print(sequential_data)
+    pass
 
 if __name__ == '__main__':
     main()
