@@ -1,5 +1,6 @@
 import os
 import json
+import time
 # get current working directory path
 cwd_path = os.getcwd()
 x_cisla=[4,3,2,5,1,8,7,45,12,14,25,4,5,7,8,2,1,6,5,9,4,8,5,3,6,2,1,5,4,7,8,2,1,5,6,4,8,9,2,3,5,1,4,7,8,5,6,4,2]
@@ -24,6 +25,7 @@ def binary_search(zoznam, cislo):
     zoradene_cisla = sorted(set(zoznam))
     low=0
     high=len(zoradene_cisla)-1
+    start=time.perf_counter()
     while low<=high:
         mid=(low+high)//2
         if zoradene_cisla[mid]==cislo:
@@ -32,8 +34,15 @@ def binary_search(zoznam, cislo):
             low=mid+1
         else:
             high=mid-1
-    return None
+    end=time.perf_counter()
+    duration=end-start
+    return  (f"Měření trvalo {duration:.8f} s, a cislo sa nenaslo")
 
+
+# def pattern_search(sequence, codon):
+#     for i in range(len(sequence)):
+#         if
+#     return None
 
 def main():
 
@@ -43,8 +52,11 @@ def main():
     print(ciselne_hladanie)
     binarni_hledani=binary_search(sequential_data, 9)
     print(binarni_hledani)
+    dna_data = read_data("sequential.json", "dna_sequence")
+    print(f"DNA data:{dna_data}")
+    vyhledavani_kodonu=pattern_search(dna_data, "ATA")
+    print(vyhledavani_kodonu)
     pass
-
 
 if __name__ == '__main__':
     main()
